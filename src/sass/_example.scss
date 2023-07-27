@@ -1,28 +1,42 @@
-.example {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  background-color: #fff;
-  color: #2f2f37;
-  max-width: 960px;
-  padding: 16px;
+
+.gallery {
+  display: grid;
+  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  // grid-auto-rows: 240px;
+  grid-gap: 12px;
+  
+  padding: 0;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
-.example code {
-  font-family: monospace;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: #ff6b0a;
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 2px;
+.gallery__item {
+  width: 240px;
+  position: relative;
 }
 
-.example .background {
-  height: 240px;
-  // ❗️❗️❗️ The path to images from a SASS file
-  // is always the same as from the css folder.
-  background-image: url('../images/logo.png');
-  background-size: cover;
-  background-position: center;
+.gallery__img {
+  width: 240px;
+  height: 180px;
+}
+
+.search-form {
+  margin-bottom: 100px;
+  display: block;
+  text-align: center;
+  background-color: rgb(143, 42, 77);
+
+
+}
+
+// .button__section {
+//   display: flex;
+//   justify-content: center;
+// }
+
+#uk {
+  display: none;
 }
