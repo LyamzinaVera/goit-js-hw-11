@@ -34,20 +34,7 @@ button {
     display: block;
 }
 
-.search-form {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    background-color: #afd7fc;
-    padding: 5px 10px;
-    align-items: center;
 
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
-    justify-content: center;
-}
 
 button.is-hidden {
     display: none;

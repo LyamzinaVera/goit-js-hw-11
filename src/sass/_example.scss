@@ -9,12 +9,24 @@
 .input-search:hover,
 .input-search:focus {
   border-color: #ff0000;
-  /* Змінити колір бордеру при наведенні курсора та активному стані (в фокусі) */
-  /* Додайте інші стилі за потребою */
+
 }
-// .input-search:hover{
-//   border-radius: #00ff00;
-// }
+
+.search-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  background-color: #afd7fc;
+  padding: 5px 10px;
+  align-items: center;
+
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  justify-content: center;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
