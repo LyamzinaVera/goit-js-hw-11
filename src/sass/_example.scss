@@ -1,11 +1,20 @@
 .input-search {
   width: 50%;
   height: 40px;
-  border-radius: 4px;
+  border-radius: 1px;
+  border: 1px solid transparent;
   padding: 2px 10px;
   margin-right: 20px;
 }
-
+.input-search:hover,
+.input-search:focus {
+  border-color: #ff0000;
+  /* Змінити колір бордеру при наведенні курсора та активному стані (в фокусі) */
+  /* Додайте інші стилі за потребою */
+}
+// .input-search:hover{
+//   border-radius: #00ff00;
+// }
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
