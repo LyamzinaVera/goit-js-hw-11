@@ -46,6 +46,7 @@ async function fetchData(searchRequest, page = 1) {
         return response.data;
 
     } catch (error) {
+        console.error('Помилка при отриманні даних:', error);
         throw new Error(error);
     }
 }
