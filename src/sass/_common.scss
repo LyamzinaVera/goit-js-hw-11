@@ -13,14 +13,64 @@ body {
     background-color: #fafafa;
     color: #212121;
     line-height: 1.5;
+    font-size: 14px;
+    font-weight: normal;
+    padding-top: 60px;
 }
 
-input {
-    padding: 8px;
-    font: inherit;
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 button {
-    padding: 8px 12px;
+    display: block;
+}
+
+.search-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    background-color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+button.is-hidden {
+    display: none;
+}
+
+button {
+    font-size: 16px;
+    line-height: 1.88;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    color: rgb(40, 5, 60);
+    background-color: rgb(230, 163, 210);
+    border: 1px solid transparent;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+    margin-left: 20px;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
     cursor: pointer;
+    border-radius: 4px;
+    transition-property: background-color, color, border;
+    transition-duration: 500ms;
+    transition-timing-function: linear;
+}
+
+button:hover {
+    animation: animate125 2000ms infinite 10ms;
+    background-color: rgb(179, 77, 154);
+    color: rgb(9, 9, 51);
+    border: 1px solid rgb(9, 9, 51);
 }

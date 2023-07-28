@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    
   </head>
   <body>
     <!-- ❗️❗️❗️ Add partials like so for every page -->
     <form class="search-form" id="search-form">
       <input 
       type="text"
+      class="input-search"
       name="searchQuery" 
       autocomplete="off" 
       placeholder="Search images..." />
@@ -21,6 +22,7 @@
       <!-- Картки зображень -->
     </div>
     <button type="button" class="load-more">Load more</button>
-    <include src="./partials/example.html"></include>
+    
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
