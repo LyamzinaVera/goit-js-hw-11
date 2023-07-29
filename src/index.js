@@ -6,7 +6,7 @@ import Notiflix from 'notiflix';
 
 
 const form = document.querySelector('.search-form');
-const gallery = document.querySelector('.gallery');
+const galleryImg = document.querySelector('.gallery');
 const loadBtn = document.querySelector(`.load-more`);
 let lightbox;
 
@@ -16,14 +16,6 @@ loadBtn.addEventListener('click', loadItems);
 let page = 1;
 let name = ``;
 loadBtn.style.display = `none`;
-
-
-function updateGallery() {
-    if (lightbox) {
-        lightbox.refresh();
-    }
-}
-
 
 async function fetchData(searchRequest, page = 1) {
     try {
@@ -45,16 +37,24 @@ async function fetchData(searchRequest, page = 1) {
 
         return response.data;
 
+
+
     } catch (error) {
-        console.error('Помилка при отриманні даних:', error);
         throw new Error(error);
     }
 }
 
+// new SimpleLightbox(`.gallery .photo-card`, {
+//     captionType: 'attr',
+//     captionsData: `alt`,
+//     captionDelay: 250,
+// }).refresh();
+
+const gallery = [];
 
 function renderMarkUp(arr) {
-    const markUp = arr.hits.reduce((acc, hit) => {
-        return (acc += `
+    const newImages = arr.hits.map(hit => {
+        return `
          <div class="gallery_item">
           <a class="photo-card" href="${hit.largeImageURL}">
            <img class="gallery__img" src="${hit.webformatURL}" alt="${hit.tags}" loading="lazy" />
@@ -66,19 +66,18 @@ function renderMarkUp(arr) {
           <p class="info-item"> Downloads:${hit.downloads}</p>
          </a>
         </div>
-        `);
-    }, ``);
+        `
+    });
 
-    // gallery.innerHTML = '';
-    gallery.innerHTML = markUp;
+    gallery.push(...newImages);
+
+    galleryImg.innerHTML = gallery.join('');
 
     if (arr.hits.length > 0) {
         loadBtn.style.display = ``;
     }
 
-    else
-    // ((Math.floor(arr.totalHits / 40) < page) && arr.hits.length != 0) 
-    {
+    else {
         loadBtn.style.display = 'none';
         Notiflix.Notify.info(
             "We're sorry, but you've reached the end of search results."
@@ -88,8 +87,6 @@ function renderMarkUp(arr) {
 
     updateGallery();
 }
-
-
 
 async function onSearchForm(eve) {
     cleanPage();
@@ -117,15 +114,11 @@ async function onSearchForm(eve) {
     }
 }
 
-function initLightbox() {
-    lightbox = new SimpleLightbox('.gallery .photo-card', {
-        captionType: 'attr',
-        captionsData: 'alt',
-        captionDelay: 250,
-    });
+function updateGallery() {
+    if (lightbox) {
+        lightbox.refresh();
+    }
 }
-
-initLightbox();
 
 async function loadItems() {
     try {
@@ -134,7 +127,8 @@ async function loadItems() {
         if (data.hits.length > 0) {
             page++;
             renderMarkUp(data);
-        } else {
+        }
+        if ((Math.floor(data.totalHits / 40) < page) && data.hits.length != 0) {
             loadBtn.style.display = 'none';
             Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
         }
