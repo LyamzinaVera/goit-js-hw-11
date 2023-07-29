@@ -17,31 +17,29 @@
  
   position: fixed;
   top: 0;
-  left: 0;
+  z-index: 2;
   width: 100%;
   display: flex;
   background-color: #afd7fc;
   padding: 5px 10px;
-  align-items: center;
   justify-content: center;
 
-  -webkit-box-pack: center;
   -webkit-box-align: center;
   justify-content: center;
 }
 
 .gallery {
-  display: grid;
   max-width: 1200px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  // grid-auto-rows: 240px;
-  grid-gap: 12px;
-  justify-content: center;
-  padding: 0;
-  list-style: none;
-  margin-left: auto;
-  margin-right: auto;
-  // background-color: #000;
+    margin: 0 auto;
+    margin-top: 60px;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 12px;
+    justify-content: center;
+    list-style: none;
+    position: relative;
+    z-index: 1;
 }
 
 .gallery__item {
